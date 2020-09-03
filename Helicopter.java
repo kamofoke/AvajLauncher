@@ -1,3 +1,5 @@
+
+
 public class Helicopter extends Aircraft implements Flyable {
 
     Helicopter(String name, Coordinates coordinates){
@@ -36,7 +38,6 @@ public class Helicopter extends Aircraft implements Flyable {
         else if (coordinates.getHeight() > 10) {
             coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), 10);
         }
-
 
     }
 
