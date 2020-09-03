@@ -1,8 +1,4 @@
 
-// import java.io.WriteToFile;
-// import WeatherTower;
-// import Tower;
-
 public class Baloon extends Aircraft implements Flyable {
 
     private WeatherTower weatherTower = new WeatherTower();
