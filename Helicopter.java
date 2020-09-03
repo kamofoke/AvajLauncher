@@ -6,33 +6,33 @@ public class Helicopter extends Aircraft implements Flyable {
         super(name, coordinates);
 
     }
-
+    WeatherTower weatherTower = new WeatherTower();
     public void updateConditions() {
 
-        String weather = WeatherTower.getWeather(this.coordinates);
+        String weather = weatherTower.getWeather(this.coordinates);  
 
 
         switch (weather){
             case "SUN": {
-                WeatherTower.WriteToFile("Helicopter#" + this.name + "(" + this.id + ") : What a nice weather to chill under the shade");
+                System.out.println("Helicopter#" + this.name + "(" + this.id + ") : What a nice weather to chill under the shade");
                 coordinates = new Coordinates(coordinates.getLongitude() + 10, coordinates.getLatitude(), coordinates.getHeight() + 2);
             }
             case "RAIN": {
-                weatherTower.WriteToFile("Helicopter#" + this.name + "(" + this.id + ") : Did u just have to rain this bad ");
+                System.out.println("Helicopter#" + this.name + "(" + this.id + ") : Did u just have to rain this bad ");
                 coordinates = new Coordinates(coordinates.getLongitude() + 5, coordinates.getLatitude(), coordinates.getHeight());
             }
             case "FOG": {
-                WeatherTower.WriteToFile("Helicopter#" + this.name + "(" + this.id + ") : Would be nice to just chill in this weather;");
+                System.out.println("Helicopter#" + this.name + "(" + this.id + ") : Would be nice to just chill in this weather;");
                 coordinates = new Coordinates(coordinates.getLongitude() + 1, coordinates.getLatitude(), coordinates.getHeight());
             }
             case "SNOW" : {
-                WeatherTower.WriteToFile("Helicopter#" + this.name + "(" + this.id + ") : I feeel soooo coooold;");
+                System.out.println("Helicopter#" + this.name + "(" + this.id + ") : I feeel soooo coooold;");
                 coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 12);
             }
         }
 
         if (coordinates.getHeight() <= 0){
-            weatherTower.WriteToFile("Tower says:Helicopter#" + this.name + "(" + this.id + ")" + "landed and unregister from the tower.");
+            System.out.println("Tower says:Helicopter#" + this.name + "(" + this.id + ")" + "landed and unregister from the tower.");
             weatherTower.unregister(this);
         }
         else if (coordinates.getHeight() > 10) {
@@ -42,9 +42,10 @@ public class Helicopter extends Aircraft implements Flyable {
     }
 
     public void registerTower(WeatherTower weatherTower){
-        weatherTower.WriteToFile("Tower says: Helicopter#" + this.name + "(" + this.id +")" + "registered to weather Tower.");
         this.weatherTower = weatherTower;
         weatherTower.register(this);
+        System.out.println("Tower says: Helicopter#" + this.name + "(" + this.id +")" + "registered to weather Tower.");
+        
     }
     
 }

@@ -13,29 +13,30 @@ public class Baloon extends Aircraft implements Flyable {
     }
 
     public void updateConditions() {
-        String weather = WeatherTower.getWeather(this.coordinates);
+        String weather = weatherTower.getWeather(this.coordinates);
 
         switch (weather){
             case "RAIN": {
-                WeatherTower.WriteToFile("Baloon#" + this.name + "(" + this.id + ") : Why did u have to rain so bad");
+                System.out.println("Baloon#" + this.name + "(" + this.id + ") : Why did u have to rain so bad");
                 coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 5);
             }
             case "SUN": {
-                weatherTower.WriteToFile("Baloon#" + this.name + "(" + this.id + ") : This is a nice weather, lets enjoy and take pictures");
+                System.out.println("Baloon#" + this.name + "(" + this.id + ") : This is a nice weather, lets enjoy and take pictures");
                 coordinates = new Coordinates(coordinates.getLongitude() + 2, coordinates.getLatitude(), coordinates.getHeight() + 4);
             }
             case "FOG": {
-                WeatherTower.WriteToFile("Baloon#" + this.name + "(" + this.id + ") : the weather is good for landing");
+                System.out.println("Baloon#" + this.name + "(" + this.id + ") : the weather is good for landing");
                 coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 3);
             }
             case "SNOW" : {
-                WeatherTower.WriteToFile("Baloon#" + this.name + "(" + this.id + ") : Ohhh I so love when it's snowing;");
+                System.out.println("Baloon#" + this.name + "(" + this.id + ") : Ohhh I so love when it's snowing;");
                 coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 15);
             }
         }
-        if (coordinates.getHeight() <= 0){
-            weatherTower.WriteToFile("Tower says:Baloon#" + this.name + "(" + this.id + ")" + "landed and unregister from the tower.");
+        if (coordinates.getHeight() <= 0){ 
             weatherTower.unregister(this);
+            System.out.println("Tower says:Baloon#" + this.name + "(" + this.id + ")" + "landed and unregister from the tower.");
+           
         }
         else if(coordinates.getHeight() > 100){
             coordinates =  new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), 100);
@@ -44,7 +45,7 @@ public class Baloon extends Aircraft implements Flyable {
     }
 
     public void registerTower(WeatherTower weatherTower){
-        weatherTower.WriteToFile("Tower says: Baloon#" + this.name + "(" + this.id +")" + "registered to weather Tower.");
+        System.out.println("Tower says: Baloon#" + this.name + "(" + this.id +")" + "registered to weather Tower.");
         this.weatherTower = weatherTower;
         weatherTower.register(this);
     }

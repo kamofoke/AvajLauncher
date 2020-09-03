@@ -5,7 +5,7 @@ public class Coordinates {
         private int height;
     
         Coordinates(int longitude, int latitude, int height) {
-    
+    //create return variables
             if (height <= 0) {
                 height = 0;
             } else if (height > 100) {
@@ -36,4 +36,3 @@ public class Coordinates {
             return this.height;
         }
     }
-}

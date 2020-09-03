@@ -9,12 +9,12 @@ public class WeatherProvider {
 
     //methods
     private WeatherProvider(){
-        weatherProvider = this;
     }
 
     public static WeatherProvider getProvider(){
-        new WeatherProvider();
-        return weatherProvider;
+       // new WeatherProvider();
+//return weatherProvider;
+        return WeatherProvider.weatherProvider;
     }
 
     public String getCurrentWeather (Coordinates coordinates){
