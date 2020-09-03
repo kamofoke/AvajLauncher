@@ -1,9 +1,8 @@
 import java.io.*;
-import java.lang.*;
 import java.util.*;
 
 
-public class Takeoff {
+public class Takeoff{
     
     private static WeatherTower weatherTower;
     private static List<Flyable> flyables = new ArrayList<Flyable>();
@@ -35,6 +34,7 @@ public class Takeoff {
                     weatherTower.changeWeather();
                 }
             }
+            reader.close();
         } catch (FileNotFoundException e) {
             System.out.println("Couldn't find file " + arg[0]);
         } catch (IOException e) {
@@ -49,5 +49,4 @@ public class Takeoff {
             WriteToFile.getWriteToFile().close();
         }
     }
-
 }
