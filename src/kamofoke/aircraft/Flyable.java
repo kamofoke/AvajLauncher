@@ -1,8 +1,11 @@
+package kamofoke.aircraft;
 
+import kamofoke.tower.*;
 
 public interface Flyable {
-
-   // public Coordinates getCoordinates();
     public void updateConditions();
+
     public void registerTower(WeatherTower weatherTower);
+
+    // public Coordinates getCoordinates();
 }

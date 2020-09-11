@@ -1,27 +1,28 @@
+package kamofoke.tower;
 
 import java.io.*;
 
 public class WriteToFile {
-    
-    private static WriteToFile writeToFile = null;
+
+    private static WriteToFile WriteToFile = null;
     private static BufferedWriter bufferedWriter = null;
-    private static File file = new File("simulation.txt");
+    private static File file = null;
     private static FileWriter fileWriter = null;
 
     private WriteToFile(){}
 
     public static WriteToFile getWriteToFile()
     {
-        if(writeToFile == null)
+        if(WriteToFile == null)
         {
             try{
-                writeToFile = new WriteToFile();
-                // file = new File("simulation.txt");
+                WriteToFile = new WriteToFile();
+                file = new File("simulator.txt");
                 fileWriter = new FileWriter(file);
                 bufferedWriter = new BufferedWriter(fileWriter);
             } catch(IOException e){}
         }
-        return writeToFile;
+        return WriteToFile;
     }
 
     public void writeFile(String str)
@@ -44,8 +45,7 @@ public class WriteToFile {
         }
         catch (Exception ex)
         {
-            System.out.println("Error in closing the file"+ex);
+            System.out.println("Error closing file"+ex);
         }
     }
-
 }

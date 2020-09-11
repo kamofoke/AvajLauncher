@@ -1,0 +1,11 @@
+cd src/
+rm simulator.txt
+cd kamofoke/
+cd aircraft
+rm *.class
+cd ../tower
+rm *.class
+cd ..
+cd ..
+cd ..
+cd ..

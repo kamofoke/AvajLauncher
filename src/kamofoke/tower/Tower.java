@@ -1,9 +1,11 @@
+package kamofoke.tower;
 
-import java.util.ArrayList;
+import java.util.*;
+import kamofoke.aircraft.*;
 
 public abstract class Tower {
 
-    private ArrayList<Flyable> observers = new ArrayList<Flyable>();
+    private ArrayList<Flyable> observers = new ArrayList<>();
 
     public void register(Flyable flyable) {
         observers.add(flyable);

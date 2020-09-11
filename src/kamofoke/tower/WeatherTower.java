@@ -1,11 +1,8 @@
+package kamofoke.tower;
 
-//import WeatherProvider;
-//import Coordinates;
+import kamofoke.aircraft.*;
 
 public class WeatherTower extends Tower {
-
-    WeatherTower weatherTower = new WeatherTower();
-
     public String getWeather(Coordinates coordinates)
     {
         return WeatherProvider.getProvider().getCurrentWeather(coordinates);
@@ -14,5 +11,6 @@ public class WeatherTower extends Tower {
     public void changeWeather()
     {
         this.conditionsChanged();
-    }   
+    }
 }
+

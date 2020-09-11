@@ -1,11 +1,18 @@
-import java.io.*;
-import java.util.*;
+package kamofoke.tower;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Takeoff{
-    
+import kamofoke.aircraft.AircraftFactory;
+import kamofoke.aircraft.Flyable;
+
+public class Takeoff {
     private static WeatherTower weatherTower;
-    private static List<Flyable> flyables = new ArrayList<Flyable>();
+    private static List<Flyable> flyables = new ArrayList<>();
 
     public static void main(String[] arg) throws InterruptedException {
         try {
@@ -33,8 +40,8 @@ public class Takeoff{
                 for (int i = 1; i <= simulations; i++) {
                     weatherTower.changeWeather();
                 }
+                reader.close();
             }
-            reader.close();
         } catch (FileNotFoundException e) {
             System.out.println("Couldn't find file " + arg[0]);
         } catch (IOException e) {
@@ -49,4 +56,5 @@ public class Takeoff{
             WriteToFile.getWriteToFile().close();
         }
     }
+
 }
