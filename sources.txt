@@ -1,0 +1,12 @@
+./src/kamofoke/aircraft/Aircraft.java
+./src/kamofoke/aircraft/AircraftFactory.java
+./src/kamofoke/aircraft/Baloon.java
+./src/kamofoke/aircraft/Coordinates.java
+./src/kamofoke/aircraft/Flyable.java
+./src/kamofoke/aircraft/Helicopter.java
+./src/kamofoke/aircraft/JetPlane.java
+./src/kamofoke/tower/Takeoff.java
+./src/kamofoke/tower/Tower.java
+./src/kamofoke/tower/WeatherProvider.java
+./src/kamofoke/tower/WeatherTower.java
+./src/kamofoke/tower/WriteToFile.java

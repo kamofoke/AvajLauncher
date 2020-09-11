@@ -6,7 +6,7 @@ public class WriteToFile {
 
     private static WriteToFile WriteToFile = null;
     private static BufferedWriter bufferedWriter = null;
-    private static File file = null;
+    private static File file = new File("simulator.txt");
     private static FileWriter fileWriter = null;
 
     private WriteToFile(){}
@@ -17,7 +17,6 @@ public class WriteToFile {
         {
             try{
                 WriteToFile = new WriteToFile();
-                file = new File("simulator.txt");
                 fileWriter = new FileWriter(file);
                 bufferedWriter = new BufferedWriter(fileWriter);
             } catch(IOException e){}

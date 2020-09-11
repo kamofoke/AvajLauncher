@@ -40,7 +40,7 @@ public class Helicopter extends Aircraft implements Flyable {
         if (this.coordinates.getHeight() <= 0)
         {
             WriteToFile.getWriteToFile().writeFile("Helicopter#" + this.name + "(" + this.id + ") landing.");
-            WriteToFile.getWriteToFile().writeFile("Tower says: Helicopter#" + this.name + "(" + this.id + ")" + " Unreistered from the weather tower.");
+            WriteToFile.getWriteToFile().writeFile("Tower says: Helicopter#" + this.name + "(" + this.id + ")" + " Unregistered from the weather tower.");
         }
     }
 
